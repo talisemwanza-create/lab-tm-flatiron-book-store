@@ -5,7 +5,7 @@ const bookStore = {
             id:1,
             title: 'Eloquent JavaScript: A Modern Introduction to Programming',
             author: 'Marjin Haverbeke',
-            imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51IKycqTPUL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
+            image: 'https://images-na.ssl-images-amazon.com/images/I/51IKycqTPUL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
             
         },
         {
@@ -44,4 +44,40 @@ const bookStore = {
 }
 
 // Write your code here!
+// Select the header element
+const bookStoreTitle = document.getElementById("header");
+
+// Update its text to the store name
+bookStoreTitle.textContent = bookStore.name;
+
+// Select the list element where books will go
+const bookList = document.getElementById("book-list");
+
+// Loop through each book in the catalog
+bookStore.books.forEach(book => {
+  // Create container for each book
+  const bookContainer = document.createElement("li");
+
+  // Create title element
+  const bookTitle = document.createElement("h3");
+  bookTitle.textContent = book.title;
+
+  // Create author element
+  const bookAuthor = document.createElement("p");
+  bookAuthor.textContent = book.author;
+
+  // Create image element
+  const bookImage = document.createElement("img");
+  bookImage.src = book.image;
+
+  // Append title, author, and image to container
+  bookContainer.appendChild(bookTitle);
+  bookContainer.appendChild(bookAuthor);
+  bookContainer.appendChild(bookImage);
+
+  // Append container to book list
+  bookList.appendChild(bookContainer);
+});
+
+
 
